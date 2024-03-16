@@ -17,6 +17,6 @@ st.markdown(
 
     While our dataset has been collected from incidents of accidents in the UK, we hope to implement it in other cities starting with
     San Diego in in order to improve road safety and save lives!
-      
+
     """
 )

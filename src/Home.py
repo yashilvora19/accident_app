@@ -153,13 +153,13 @@ if clicked:
 
     if np.argmax(out) == 0:
         severity = 'Mild'
-        st.image('../imgs/mild.png', caption='Mild Accident Graphic')  
+        st.image(path + '/mild.png', caption='Mild Accident Graphic')  
     elif np.argmax(out) == 1:
         severity = 'Severe'
-        st.image('../imgs/severe.jpg', caption='Severe Accident Graphic')
+        st.image(path + '/severe.jpg', caption='Severe Accident Graphic')
     else:
         severity = 'Fatal'
-        st.image('../imgs/fatal.jpg', caption='Fatal Accident Graphic')
+        st.image(path + '/fatal.jpg', caption='Fatal Accident Graphic')
 
     st.write("Results")
     st.success("Data processed successfully. Here's the accident severity: " + severity)
