@@ -15,7 +15,7 @@ from keras.layers import Dense
 # python -m streamlit run Home.py OR
 # streamlit run Home.py
 
-st.set_page_config(page_title="Predicting Severity of Road Accidents in the U.K.")
+st.set_page_config(page_title="Strategizing Safety : Predicting Road Accident Severity for Effective Prevention", page_icon="🏠")
 
 path = os.path.dirname(__file__)
 
@@ -29,7 +29,7 @@ model = load_model()
 
 st.sidebar.title("Navigation")
 
-st.title("CSE 151A Project - Predicting Severity of Road Accidents in the U.K.")
+st.title("Strategizing Safety : Predicting Road Accident Severity for Effective Prevention")
 
 # Add your project description here
 
@@ -57,14 +57,16 @@ st.markdown(
     ### Test Our Model Here!
     """
 )
-latitude = st.text_input("Latitude", "")
-longitude = st.text_input("Longitude", "")
+latitude = st.slider('Latitude', -90, 90, 0)
+longitude = st.slider('Longitude', -180, 180, 0)
+
 
 # urban_or_rural_area = st.selectbox("Urban or Rural Area", ["Urban", "Rural"])
 number_of_casualties = st.text_input("Number of Casualties", "")
 number_of_vehicles = st.text_input("Number of Vehicles", "")
-day = st.text_input("Day (1-31)", "")
-month = st.text_input("Month (1-12)", "")
+day = st.slider('Day', 1, 31, 15)
+month = st.slider('Month', 1, 12, 6)
+
 year = st.text_input("Year (XXXX)", "")
 
 light_conditions = st.radio("Light Conditions", ["Darkness - no lighting", "Darkness - lights unlit", "Darkness - lights lit", "Daylight"])
@@ -94,35 +96,8 @@ st.markdown(
      - Fatal.
     """
     )
-# st.image('../imgs/mild.png', caption='Mild Accident Graphic')  
-# st.image('../imgs/severe.jpg', caption='Severe Accident Graphic')
-# st.image('../imgs/fatal.jpg', caption='Fatal Accident Graphic')
-
 
 clicked = st.button('Predict Accident Severity')
-# """
-# Index(['Latitude', 
-#     'Light_Conditions'- LABEL ENCODED 
-# 'Longitude',
-# 'Number_of_Casualties'
-# 'Number_of_Vehicles'
-# 'Day'
-# 'Month'
-# 'Year'
-
-# ROAD CONDITIONS- 'Dry', 'Flood over 3cm. deep', 'Frost or ice', 'Snow', 'Wet or damp',
-# ROAD TYPE -'Dual carriageway', 'One way street', 'Roundabout',
-#        'Single carriageway', 'Slip road', 
-# RURAL UNALLOCATED URBAN
-
-# VEHICLE TYPE-----'Agricultural vehicle', 'Bus or coach (17 or more pass seats)', 'Car',
-#        'Goods 7.5 tonnes mgw and over', 'Goods over 3.5t. and under 7.5t',
-#        'Minibus (8 - 16 passenger seats)', 'Motorcycle 125cc and under',
-#        'Motorcycle 50cc and under', 'Motorcycle over 125cc and up to 500cc',
-#        'Motorcycle over 500cc', 'Other vehicle', 'Pedal cycle', 'Ridden horse',
-#        'Taxi/Private hire car', 'Van / Goods 3.5 tonnes mgw or under', 
-# WAETHER CONDITIONS----'Fine','Fog or mist', 'High winds', 'Other', 'Raining', 'Snowing',
-# """
 
 if clicked:
     # LIGHT CONDITIONS
