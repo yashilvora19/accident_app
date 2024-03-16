@@ -21,9 +21,9 @@ path = os.path.dirname(__file__)
 
 @st.cache_resource
 def load_model():
-    current_dir = os.getcwd()
-    model_path = os.path.join(current_dir, 'models', 'saving_model.keras')
-    model = tf.keras.models.load_model(model_path)
+    # current_dir = os.getcwd()
+    # model_path = os.path.join(current_dir, 'models', 'saving_model.keras')
+    model = tf.keras.models.load_model(path + '/models/saving_model.keras')
     return model
 model = load_model()
 
